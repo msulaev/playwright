@@ -1,0 +1,11 @@
+[ {
+  "uid" : "1e32acb6744a8460",
+  "name" : "homepage has title and links to intro page",
+  "time" : {
+    "start" : 1680259644013,
+    "stop" : 1680259645465,
+    "duration" : 1452
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

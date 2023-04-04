@@ -1,0 +1,26 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "MacBook-Pro.local",
+    "children" : [ {
+      "name" : "MacBook-Pro.local-94761-playwright-worker-0",
+      "children" : [ {
+        "name" : "homepage has title and links to intro page",
+        "uid" : "1e32acb6744a8460",
+        "parentUid" : "b5737c861d545ce990499287fe6afe78",
+        "status" : "passed",
+        "time" : {
+          "start" : 1680259644013,
+          "stop" : 1680259645465,
+          "duration" : 1452
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "chromium" ]
+      } ],
+      "uid" : "b5737c861d545ce990499287fe6afe78"
+    } ],
+    "uid" : "e792a61be548a1d4ff631ca281f20c17"
+  } ]
+}
