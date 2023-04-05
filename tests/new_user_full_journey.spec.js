@@ -3,6 +3,8 @@ import { ProductsPage } from "../page-object/ProductPage"
 import { NavigationElement } from "../page-object/NavigatorElement"
 import { CheckoutPage } from "../page-object/CheckoutPage"
 import { LoginPage } from "../page-object/LoginPage"
+import { RegisterPage } from "../page-object/RegisterPage"
+
 
 test.only("New user full e2e test journey", async ({ page }) =>{
     const productPage = new ProductsPage(page);
@@ -20,6 +22,9 @@ test.only("New user full e2e test journey", async ({ page }) =>{
 
     const loginPage = new LoginPage(page);
     await loginPage.login();
+
+    const registerPage = new RegisterPage();
+    registerPage.signUpAsNewUser();
 
 })
 
