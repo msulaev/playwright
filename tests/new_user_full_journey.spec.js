@@ -35,5 +35,8 @@ test.only("New user full e2e test journey", async ({ page }) =>{
     await deliveryDetailsPage.fillDetails(userAdress);
     await deliveryDetailsPage.saveDetails();
     await deliveryDetailsPage.continueToPayment();
+
+    const paymentPage = new PaymentPage(page);
+    await paymentPage.activateDiscount();
 })
 
