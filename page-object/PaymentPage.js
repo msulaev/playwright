@@ -7,7 +7,12 @@ export class PaymentPage { // work with iframe
         this.activateDiscountBtn = page.locator('[data-qa="submit-discount-button]');
         this.totalValue = page.locator('[data-qa="total-value"]');
         this.discountedValue = page.locator('[data-qa="total-with-discount-value"]');
-        this.discountActiveMessage = page.locator('[data-qa="discount-active-message"]');      
+        this.discountActiveMessage = page.locator('[data-qa="discount-active-message"]'); 
+        this.creditCardOwnerInput = page.getByPlaceholder("Credit card owner");
+        this.creditCardNumberInput = page.getByPlaceholder("Credit card number");
+        this.creitCardvalidUntilInput = page.getByPlaceholder("Valid until");
+        this.creditCardCvcInput = page.getByPlaceholder("Credit Card CVC");
+        this.payButton = page.locator('[data-qa="pay-button"]');     
     }
 
     async activateDiscount() { 
@@ -26,5 +31,21 @@ export class PaymentPage { // work with iframe
         const totalValueOnlyStringNumber = totalValueText.replace("$", "")
         const totalValueNumber = parseInt(totalValueOnlyStringNumber, 10)
         expect(discountValueNumber).toBeLessThan(totalValueNumber)
+    }
+
+    async fillPaymentDetails(paymentDetails) {
+        await this.page.creditCardOwnerInput.waitFor();
+        await this.page.creditCardOwnerInput.fill(paymentDetails.owner);
+        await this.page.creditCardNumberInput.waitFor();
+        await this.page.creditCardNumberInput.fill(paymentDetails.number);
+        await this.page.creitCardvalidUntilInput.waitFor();
+        await this.page.creitCardvalidUntilInput.fill(paymentDetails.validUntil);
+        await this.page.creditCardCvcInput.waitFor();
+        await this.page.creditCardCvcInput.fill(paymentDetails.cvc);
+    }
+    async completePayment() {
+        await this.payButton.waitFor();
+        await this.payButton.click();
+        await this.page.waitForUrl("**/thank-you", { timeout: 3000 });
     }
 }

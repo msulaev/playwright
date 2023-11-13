@@ -7,6 +7,8 @@ import { RegisterPage } from "../page-object/RegisterPage";
 import {v4 as uuidv4 } from "uuid";
 import { DeliveryDetailsPage } from "../page-object/DeliveryDetailsPage"
 import { deliveryDetails as userAdress } from "./../data/deliveryDetails"
+import { PaymentPage } from "../page-object/PaymentPage"
+import { paymentDetails as paymantDetails } from "./../data/paymentDetails"
 
 
 
@@ -38,5 +40,9 @@ test.only("New user full e2e test journey", async ({ page }) =>{
 
     const paymentPage = new PaymentPage(page);
     await paymentPage.activateDiscount();
-})
+    await paymentPage.fillPaymentDetails(paymantDetails);
+    await paymentPage.completePayment();
+
+    }
+)
 
