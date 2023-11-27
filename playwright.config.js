@@ -23,6 +23,8 @@ const config = {
      */
     timeout: 5000
   },
+  globalSetup: require.resolve('./global-setup.js'),
+  // require.resolve is a Node.js function that returns the path to a module
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
